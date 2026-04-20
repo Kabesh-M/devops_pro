@@ -1,6 +1,8 @@
-FROM node:18
-WORKDIR /app
-COPY . .
-RUN npm install
-EXPOSE 3000
-CMD ["node", "app.js"]
+FROM nginx:1.27-alpine
+
+COPY index.html /usr/share/nginx/html/index.html
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

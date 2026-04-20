@@ -1,0 +1,8 @@
+.git
+.gitignore
+Jenkinsfile
+terraform/.terraform
+terraform/*.tfstate*
+terraform/.terraform.lock.hcl
+monitoring/*.png
+README.md

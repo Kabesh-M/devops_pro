@@ -1,0 +1,23 @@
+grafana:
+  defaultDashboardsEnabled: true
+  adminPassword: admin123
+  dashboardProviders:
+    dashboardproviders.yaml:
+      apiVersion: 1
+      providers:
+        - name: devops-dashboards
+          orgId: 1
+          folder: DevOps
+          type: file
+          disableDeletion: false
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/devops
+  dashboards:
+    devops:
+      devops-webapp-overview:
+        file: /var/lib/grafana/dashboards/devops/grafana-dashboard-devops.json
+
+prometheus:
+  prometheusSpec:
+    serviceMonitorSelectorNilUsesHelmValues: false

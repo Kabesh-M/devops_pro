@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Workflow Platform</title>
+    <style>
+        :root {
+            --bg: #0b1d26;
+            --bg-soft: #123747;
+            --card: #f4efe6;
+            --ink: #14212a;
+            --accent: #ff7a18;
+            --accent-2: #d8572a;
+            --muted: #5b6b75;
+            --ok: #198754;
+            --mono: "JetBrains Mono", "Consolas", monospace;
+            --display: "Trebuchet MS", "Segoe UI", sans-serif;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: var(--display);
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 15% 20%, rgba(255, 122, 24, 0.25), transparent 35%),
+                radial-gradient(circle at 85% 10%, rgba(216, 87, 42, 0.30), transparent 30%),
+                linear-gradient(160deg, var(--bg) 0%, var(--bg-soft) 65%, #1e4d63 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .panel {
+            width: min(980px, 100%);
+            background: var(--card);
+            border-radius: 18px;
+            padding: 32px;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+            overflow: hidden;
+            position: relative;
+            animation: reveal 0.8s ease-out;
+        }
+
+        .panel::after {
+            content: "";
+            position: absolute;
+            right: -60px;
+            top: -60px;
+            width: 220px;
+            height: 220px;
+            border-radius: 999px;
+            background: linear-gradient(145deg, var(--accent), var(--accent-2));
+            opacity: 0.15;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            letter-spacing: 0.5px;
+        }
+
+        p.lead {
+            color: var(--muted);
+            margin: 12px 0 26px;
+            max-width: 65ch;
+            line-height: 1.55;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+        }
+
+        .tile {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #e5dfd3;
+            padding: 14px 16px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            animation: slideIn 0.5s ease both;
+        }
+
+        .tile:nth-child(2) { animation-delay: 0.08s; }
+        .tile:nth-child(3) { animation-delay: 0.16s; }
+        .tile:nth-child(4) { animation-delay: 0.24s; }
+        .tile:nth-child(5) { animation-delay: 0.32s; }
+        .tile:nth-child(6) { animation-delay: 0.4s; }
+
+        .tile:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(20, 33, 42, 0.12);
+        }
+
+        .tile h3 {
+            margin: 0 0 8px;
+            font-size: 1rem;
+        }
+
+        .tile p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.45;
+        }
+
+        .status {
+            margin-top: 20px;
+            padding: 12px 14px;
+            border-left: 5px solid var(--ok);
+            background: #e7f5ec;
+            font-family: var(--mono);
+            font-size: 0.9rem;
+        }
+
+        @keyframes reveal {
+            from { transform: translateY(12px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-8px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <main class="panel">
+        <h1>End-to-End DevOps Workflow</h1>
+        <p class="lead">
+            This project demonstrates a full delivery lifecycle: source in GitHub, CI/CD with Jenkins,
+            containerization with Docker, deployment to Kubernetes, infrastructure provisioning through Terraform,
+            and observability through Prometheus and Grafana.
+        </p>
+
+        <section class="grid" aria-label="Workflow components">
+            <article class="tile">
+                <h3>GitHub Repository</h3>
+                <p>Versioned source code, IaC, manifests, and dashboard assets in one project.</p>
+            </article>
+            <article class="tile">
+                <h3>Jenkins Pipeline</h3>
+                <p>Build, test, image publishing, infra apply, cluster deploy, and monitoring setup stages.</p>
+            </article>
+            <article class="tile">
+                <h3>Docker</h3>
+                <p>Nginx-based container image optimized for serving the static production webpage.</p>
+            </article>
+            <article class="tile">
+                <h3>Kubernetes</h3>
+                <p>Deployment, service, ingress, and namespace definitions for production rollout.</p>
+            </article>
+            <article class="tile">
+                <h3>Terraform</h3>
+                <p>Infrastructure modules and variables for repeatable environment provisioning.</p>
+            </article>
+            <article class="tile">
+                <h3>Monitoring</h3>
+                <p>Prometheus scraping and Grafana dashboard provisioning for live visibility.</p>
+            </article>
+        </section>
+
+        <div class="status">System status: pipeline assets generated and ready for deployment.</div>
+    </main>
+</body>
+</html>

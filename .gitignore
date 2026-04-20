@@ -1,0 +1,13 @@
+# Terraform
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/.terraform.lock.hcl
+
+# IDE and OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Jenkins and runtime temp files
+*.log

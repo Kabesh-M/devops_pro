@@ -1,5 +1,9 @@
 {
-  "name": "devops-app",
+  "name": "devops-end-to-end-workflow",
   "version": "1.0.0",
-  "main": "app.js"
+  "private": true,
+  "description": "Static web app with complete DevOps workflow assets",
+  "scripts": {
+    "validate:html": "echo \"Static site validation placeholder\""
+  }
 }
